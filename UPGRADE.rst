@@ -99,6 +99,15 @@ request to
 with the query parameters from the original link, encoded as a URL-encoded form. See the file
 itself for more details.
 
+Forwarding ``/_synapse/client`` through your reverse proxy
+----------------------------------------------------------
+
+The `reverse proxy documentation
+<https://github.com/matrix-org/synapse/blob/develop/docs/reverse_proxy.md>`_ has been updated
+to include reverse proxy directives for ``/_synapse/client/*`` endpoints. As the user password
+reset flow now uses endpoints under this prefix, **you must update your reverse proxy
+configurations for user password reset to work**.
+
 Upgrading to v1.18.0
 ====================
 
