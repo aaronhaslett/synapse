@@ -110,6 +110,8 @@ class RoomConfig(Config):
 
         self.power_level_content_override = power_level_content_override
 
+        self.upgrade_enables_federation = config.get('upgrade_enables_federation', False)
+
     def generate_config_section(self, **kwargs):
         pl_keys = self.power_level_content_default.keys() - {"events", "users"}
         pl_lines_list = ["          #{}: 50".format(f) for f in sorted(pl_keys)]
@@ -140,6 +142,9 @@ class RoomConfig(Config):
         # will also not affect rooms created by other servers.
         #
         #encryption_enabled_by_default_for_room_type: invite
+
+        # Causes room upgrade to enable federation
+        #upgrade_enables_federation: false
 
         # Don't use this unless you are sure you know what you're doing and have
         # a strong understanding of the matrix protocol. Here's the relevant docs:
